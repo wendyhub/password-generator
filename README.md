@@ -20,4 +20,4 @@ The criteria that the password is able to meet are: <br>
 
 ## Creator's notes
 
-I found this assignment quite challenging. I had the concept/pseudo code in mind of what I wanted to achieve but there were flaws in my code along the way. I particularly found it difficult to create a formula to generate the random code. Nonetheless I learned a lot while working on this project and hope to get the password generator to a better state as I will continue to debug the code.
+I found this assignment quite challenging. I had the concept/pseudo code in mind of what I wanted to achieve but there were flaws in my code along the way-- I particularly found it difficult to create a formula to generate the random code. Nonetheless I learned a lot from working on this project and am happy with the outcome.
