@@ -1,70 +1,69 @@
 var lower = 'abcdefghijklmnopqrstuvwxyz';
 var upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-var special = '!@#$^&%*()+=-[]\/{}|:<>?,.';
+var special = '!@#$^&%*()+=-[]{}|:<>?,.';
 var numbers = '1234567890';
+
 var pwd = '';
-var lowerSelection;
-var upperSelection;
-var specialSelection;
-var numberSelection;
+
+var lowerSelection = false;
+var upperSelection = false;
+var specialSelection = false;
+var numberSelection = false;
 
 function generate() {
-    var confirmLength = prompt("What length would you like the password to be? (Between 8 to 128 characters)");
-    if (isNaN(confirmLength) || confirmLength < 8 || confirmLength > 128) {
-    var confirmLength = prompt("The age must be a number between 1 and 100, please try again.");
+    var confirmLength = '';
 
+    while (isNaN(confirmLength) || confirmLength < 8 || confirmLength > 128) {
+        confirmLength = prompt("What length would you like the password to be? (Between 8 to 128 characters)");
+        if (confirmLength === null) {
+            break;
+        }
     }
 
-    else {
-        var lower= confirm("Would you like to use lowercase characters?");
-        if (lower == true) {
+    if (confirmLength) {
+        if (confirm("Would you like to use lowercase characters?") == true) {
             lowerSelection = true
-        }
+        } 
 
-        var upper= confirm("Would you like to use uppercase characters?");
-        if (upper == true) {
+        if (confirm("Would you like to use uppercase characters?") == true) {
             upperSelection = true
         }
 
-        var special= confirm("Would you like to use special characters?");
-        if (special == true) {
+        if (confirm("Would you like to use special characters?") == true) {
             specialSelection = true
         }
 
-        var numbers= confirm("Would you like to use numerical characters?");
-        if (numbers == true) {
+        if (confirm("Would you like to use numerical characters?") == true) {
             numberSelection = true
+        }
+
+        if (lowerSelection === false && upperSelection === false && specialSelection === false && numberSelection === false) {
+            alert("At least one character type must be selected")
         }
     }
 
-    if ( lowerSelection === false && upperSelection === false && specialSelection === false && numberSelection === false ) {
-        alert("At least one character type must be selected")
+    var characters = '';
+    characters += (lowerSelection ? lower : '');
+    characters += (upperSelection ? upper : '');
+    characters += (specialSelection ? special : '');
+    characters += (numberSelection ? numbers : '');
+
+    pwd = password(confirmLength, characters);
+
+    document.getElementById("password").innerHTML = pwd;
+
+}
+
+function password(l, characters) {
+    var pwd = '';
+    for (var i = 0; i < l; ++i) {
+        pwd += characters.charAt(Math.floor(Math.random() * characters.length));
     }
-    
-    document.getElementById('generate').addEventListener("click",function(e){
-        var characters = confirmLength;
-        (lowerSelection == true) ? characters += lower : '';
-        (upperSelection == true) ? characters += upper : '';
-        (specialSelection == true) ? characters += special : '';
-        (numbersSelection == true) ? characters += numbers : '';
-        pwd.value = password(confirmLength.value, characters);
-    });
-    
-    function password(l,characters){
-            var pwd = '';
-        for(var i = 0; i<l; i++){
-                pwd = characters.charAt(Math.floor(Math.random() * confirmLength.length));
-                lower[rand];upper[rand];special[rand];numbers[rand];
-            }
-        return pwd;
-    }     
-}   
-
-document.getElementById("password").innerHTML = pwd;
-
+    return pwd;
+}
 
 function copied() {
-    var copyText = document.getElementById("password");
+    document.getElementById("password").select();
     document.execCommand("copy");
     alert("The password has been copied to your clipboard!");
-  }
+}
