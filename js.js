@@ -42,12 +42,35 @@ function generate() {
         alert("At least one character type must be selected")
     }
     
+    document.getElementById('generate').addEventListener("click",function(e){
+        var characters = confirmLength;
+        (lowerSelection == true) ? characters += lower : '';
+        (upperSelection == true) ? characters += upper : '';
+        (specialSelection == true) ? characters += special : '';
+        (numbersSelection == true) ? characters += numbers : '';
+        yourPW.value = password(confirmLength.value, characters);
+    });
+    
+    function password(l,characters){
+            var pwd = '';
+        for(var i = 1; i<l; i++){
+                pwd = characters.charAt(Math.floor(Math.random() * confirmLength.length));
+                lower[rand];upper[rand];special[rand];numbers[rand];
+            }
+        return pwd;
+    }
+        
+}   
 
+    /*
     rand = Math.floor(Math.random() * Number(confirmLength.length));
 lower[rand];upper[rand];special[rand];numbers[rand];
 }
+*/
+
 
 document.getElementById("password").innerHTML = pwd;
+
 
 function copied() {
     var copyText = document.getElementById("password");
