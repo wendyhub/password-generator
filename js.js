@@ -1,3 +1,5 @@
+//define variables
+
 var lower = 'abcdefghijklmnopqrstuvwxyz';
 var upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 var special = '!@#$^&%*()+=-[]{}|:<>?,.';
@@ -10,16 +12,19 @@ var upperSelection = false;
 var specialSelection = false;
 var numberSelection = false;
 
+
+//function to generate a random password
+
 function generate() {
     var confirmLength = '';
-
+//asking user to input desired character length
     while (isNaN(confirmLength) || confirmLength < 8 || confirmLength > 128) {
         confirmLength = prompt("What length would you like the password to be? (Between 8 to 128 characters)");
         if (confirmLength === null) {
             break;
         }
     }
-
+//getting user input for which character types to use for the password
     if (confirmLength) {
         if (confirm("Would you like to use lowercase characters?") == true) {
             lowerSelection = true
@@ -36,12 +41,12 @@ function generate() {
         if (confirm("Would you like to use numerical characters?") == true) {
             numberSelection = true
         }
-
+//if none of the character types are selected, alerts the user to choose at least one
         if (lowerSelection === false && upperSelection === false && specialSelection === false && numberSelection === false) {
             alert("At least one character type must be selected")
         }
     }
-
+//generate random password
     var characters = '';
     characters += (lowerSelection ? lower : '');
     characters += (upperSelection ? upper : '');
@@ -61,7 +66,7 @@ function password(l, characters) {
     }
     return pwd;
 }
-
+//function to copy password to computer clipboard
 function copied() {
     document.getElementById("password").select();
     document.execCommand("copy");
