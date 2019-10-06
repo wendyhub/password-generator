@@ -11,40 +11,39 @@
 
   
 
-    <header>
-      <h1>Password Generator</h1>
-    </header>
+  <header>
+    <h1>Password Generator</h1>
+  </header>
 
-<body>
-  <section class="main-section">
-  </div id="main-container" class="container">  
+    <body>
+        <section class="main-section">
+        </div id="main-container" class="container">  
+
+        <h2>Generate a Password</h2>
+
+        <hr>
+    
+        <textarea
+          readonly
+          id="password"
+          placeholder="Your Secure Password"
+        ></textarea>
+    
+        <p id="newpassword"></p>
+
+        <hr>
+    
+
+        <button id="generate" class="button" onclick="generate()">
+          Generate Password</button>
+
+        <button id="copypw" class="button" onclick="copied()">
+          Copy to Clipboard
+        </button>
   
-
-    <h2>Generate a Password</h2>
-
-   
-    <hr>
-    
-    <textarea
-      readonly
-      id="password"
-      placeholder="Your Secure Password"
-    ></textarea>
-    
-    <p id="newpassword"></p>
-
-    <hr>
-    
-
-    <button id="generate" class="button" onclick="generate()">
-      Generate Password</button>
-    <button id="copypw" class="button" onclick="copied()">
-      Copy to Clipboard
-    </button>
   
-  
-  </div>
-</section>
+        </div>
+      </section>
     
-  </body>
+    </body>
 </html>

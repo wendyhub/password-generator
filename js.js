@@ -1,4 +1,3 @@
-
 var lower = 'abcdefghijklmnopqrstuvwxyz';
 var upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 var special = '!@#$^&%*()+=-[]\/{}|:<>?,.';
@@ -8,7 +7,7 @@ var lowerSelection;
 var upperSelection;
 var specialSelection;
 var numberSelection;
-​
+
 function generate() {
     var confirmLength = prompt("What length would you like the password to be? (Between 8 to 128 characters)");
     if (isNaN(confirmLength) || confirmLength < 8 || confirmLength > 128) {
@@ -48,26 +47,18 @@ function generate() {
         (upperSelection == true) ? characters += upper : '';
         (specialSelection == true) ? characters += special : '';
         (numbersSelection == true) ? characters += numbers : '';
-        yourPW.value = password(confirmLength.value, characters);
+        pwd.value = password(confirmLength.value, characters);
     });
     
     function password(l,characters){
             var pwd = '';
-        for(var i = 1; i<l; i++){
+        for(var i = 0; i<l; i++){
                 pwd = characters.charAt(Math.floor(Math.random() * confirmLength.length));
                 lower[rand];upper[rand];special[rand];numbers[rand];
             }
         return pwd;
-    }
-        
+    }     
 }   
-
-    /*
-    rand = Math.floor(Math.random() * Number(confirmLength.length));
-lower[rand];upper[rand];special[rand];numbers[rand];
-}
-*/
-
 
 document.getElementById("password").innerHTML = pwd;
 
