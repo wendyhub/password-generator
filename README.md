@@ -17,6 +17,11 @@ The criteria that the password is able to meet are: <br>
     *special characters <br>
     *numeric characters <br>
 
+## The final product
+ https://wendyhub.github.io/password-generator/
+
+<img src="example1.png" alt="picture of password generator"> <br>
+<img src="example2.png" alt="picture of completed password"> <br>
 
 ## Creator's notes
 
