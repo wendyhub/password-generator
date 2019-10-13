@@ -1,7 +1,7 @@
 # Unit 03 JavaScript Homework: Password Generator
 
 
-## Decription
+## Description
 
 This project was created to solve the security issues of weak passwords. Given that a user needs a new, secured password, they will be promted to determine certain character types required for the password and then a new random password will be generated.
 
